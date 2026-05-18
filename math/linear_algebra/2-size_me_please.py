@@ -7,5 +7,5 @@ def matrix_shape(matrix):
     while isinstance(matrix,list):
 
         shape.append(len(matrix))
-        matrix = [0]matrix
+        matrix = matrix[0]
     return shape
