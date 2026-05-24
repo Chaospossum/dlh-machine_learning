@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
+"""Script that slices a NumPy matrix."""
 import numpy as np
-matrix = np.array([[1, 2, 3, 4, 5, 6],
-                   [7, 8, 9, 10, 11, 12],
-                   [13, 14, 15, 16, 17, 18],
-                   [19, 20, 21, 22, 23, 24]])
-# array[start:end:step]
+matrix = np.arange(1, 25).reshape((4, 6))
 mat1 = matrix[1:3, :]
 mat2 = matrix[:, 2:4]
 mat3 = matrix[1:4, 3:6]
