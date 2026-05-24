@@ -3,5 +3,5 @@
 
 
 def np_transpose(matrix):
-    """Return a new numpy.ndarray that is the transpose of matrix."""
+    """Return aN new numpy.ndarray that is the transpose of matrix."""
     return matrix.transpose()
