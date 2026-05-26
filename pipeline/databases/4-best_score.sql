@@ -1,13 +1,5 @@
---all hail the gods machine
-CREATE TABLE IF NOT EXISTS second_table (
-    id INT,
-    name VARCHAR(256),
-    score INT
-);
-INSERT INTO second_table (id, name, score) VALUES (1, "Bob", 14);
-INSERT INTO second_table (id, name, score) VALUES (2, "Roy", 3);
-INSERT INTO second_table (id, name, score) VALUES (3, "John", 10);
-INSERT INTO second_table (id, name, score) VALUES (4, "Bryan", 8);
-);
-
-SELECT score FROM second_table WHERE score >=10;
+-- List all records with a score of 10 or more
+SELECT score, name
+FROM second_table
+WHERE score >= 10
+ORDER BY score DESC;
