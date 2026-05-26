@@ -1,2 +1,2 @@
---a script which will ist the first of all rows in the table
-SELECT id_name FROM first_table;
+-- A script that lists all rows of the table first_table
+SELECT id, name FROM first_table;
