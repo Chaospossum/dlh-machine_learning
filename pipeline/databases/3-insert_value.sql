@@ -1,4 +1,2 @@
---add something to the table
-ALTER TABLE first_table
-ADD id 89
-ADD name Holberton School;
+-- Insert a new row in the table first_table
+INSERT INTO first_table (id, name) VALUES (89, "Holberton School");
