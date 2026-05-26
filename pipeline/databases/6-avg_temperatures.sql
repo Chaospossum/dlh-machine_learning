@@ -1,5 +1,5 @@
---DISPLAY average temp
-SELECT AVG(value)
-FROM avg_temp FROM temperatures
+-- Display average temperature by city ordered by temperature descending
+SELECT city, AVG(value) AS avg_temp
+FROM temperatures
 GROUP BY city
-ORDER BY avg_temp DESC
+ORDER BY avg_temp DESC;
