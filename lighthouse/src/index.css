@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Calm muted defaults. Soft contrast, generous whitespace. */
+:root {
+  --accent: #5b8a8c;
+  --accent-soft: #dceae9;
+  --app-font: system-ui, sans-serif;
+  --text-scale: 1;
+  --line-spacing: 1.6;
+  --bg: #f5f2ec;
+  --surface: #fbf9f5;
+  --ink: #3a3a38;
+  --ink-soft: #6f6f6a;
+  --border: #e7e2d9;
+}
+
+.dark {
+  --bg: #1f242b;
+  --surface: #272d36;
+  --ink: #e7e9ec;
+  --ink-soft: #aab0b8;
+  --border: #353d48;
+}
+
+.true-dark {
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --ink: #d8d8d8;
+  --ink-soft: #8a8a8a;
+  --border: #1a1a1a;
+}
+
+html {
+  font-size: calc(16px * var(--text-scale));
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--app-font);
+  line-height: var(--line-spacing);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reduce-motion / low-arousal: kill animations + transitions globally.
+   The focus ring updates in calm discrete steps instead (handled in JS). */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* Low-arousal: desaturate the whole app to the bare calm minimum. */
+.low-arousal {
+  filter: saturate(0.55);
+}
+
+/* Compact density */
+.compact .density-pad {
+  padding: 0.6rem !important;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pop {
+  animation: pop 420ms ease-out;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.85); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+.animate-breathe {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadein { animation: fadein 600ms ease-out; }
