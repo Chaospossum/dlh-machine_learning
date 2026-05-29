@@ -3,40 +3,34 @@
 
 
 def determinant(matrix):
-    """Calculate the determinant of a square matrix.
+    """Calculate the determinant of a square matrix."""
 
-    matrix is a list of lists whose determinant should be calculated.
-    The list [[]] represents a 0x0 matrix (determinant is 1).
-    """
-    # --- Check 1: it must be a non-empty list of lists ---
-    if type(matrix) is not list or len(matrix) == 0 or not all(
-            type(row) is list for row in matrix):
-        raise TypeError("matrix must be a list of lists")
+    # TODO 1: Validate input is a NON-EMPTY list of lists.
+    #   - If matrix is not a list, OR it is empty (len 0),
+    #     OR any element inside it is not a list,
+    #     raise TypeError("matrix must be a list of lists")
+    #   Hint: use type(matrix) is list  and  all(... for row in matrix)
 
-    # --- Special case: the 0x0 matrix [[]] has determinant 1 ---
-    if matrix == [[]]:
-        return 1
+    # TODO 2: Handle the special 0x0 matrix.
+    #   - If matrix == [[]], return 1
 
-    # --- Check 2: it must be square (n rows, each row of length n) ---
-    n = len(matrix)
-    if not all(len(row) == n for row in matrix):
-        raise ValueError("matrix must be a square matrix")
+    # TODO 3: Validate it is square.
+    #   - Let n = len(matrix)
+    #   - If any row's length != n, raise
+    #     ValueError("matrix must be a square matrix")
 
-    # --- Base case: 1x1 matrix -> the single number ---
-    if n == 1:
-        return matrix[0][0]
+    # TODO 4: Base case 1x1.
+    #   - If n == 1, return the single element.
 
-    # --- Base case: 2x2 matrix -> a*d - b*c ---
-    if n == 2:
-        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+    # TODO 5: Base case 2x2.
+    #   - Return a*d - b*c  (i.e. m[0][0]*m[1][1] - m[0][1]*m[1][0])
 
-    # --- Recursive case: cofactor expansion along the first row ---
-    det = 0
-    for col in range(n):
-        # Build the minor: drop row 0 and the current column.
-        minor = [[row[c] for c in range(n) if c != col]
-                 for row in matrix[1:]]
-        # Sign flips +, -, +, -, ... ; multiply by the element; recurse.
-        sign = (-1) ** col
-        det += sign * matrix[0][col] * determinant(minor)
-    return det
+    # TODO 6: Recursive case (3x3 and bigger) — cofactor expansion.
+    #   - Start a total det = 0
+    #   - Loop col from 0 to n-1:
+    #       * build the "minor": every row AFTER row 0, dropping column `col`
+    #       * sign = (-1) ** col
+    #       * det += sign * matrix[0][col] * determinant(minor)
+    #   - return det
+
+    pass  # <-- delete this once you start writing
