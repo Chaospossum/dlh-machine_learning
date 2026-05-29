@@ -8,3 +8,4 @@ inverses, and definiteness of matrices.
 - `0-determinant.py` - Calculates the determinant of a matrix.
 - `1-minor.py` - Calculates the minor matrix of a matrix.
 - `2-cofactor.py` - Calculates the cofactor matrix of a matrix.
+- `3-adjugate.py` - Calculates the adjugate matrix of a matrix.
