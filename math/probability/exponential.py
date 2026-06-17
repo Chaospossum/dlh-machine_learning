@@ -24,7 +24,14 @@ class Exponential:
             self.lambtha = float(1 / (sum(data) / len(data)))
 
     def pdf(self, x):
-        """Calculate the PDF for a given time period."""
+        """Calculate the PDF value for a given time period x.
+
+        Args:
+            x: time period.
+
+        Returns:
+            the PDF value for x, or 0 if x is out of range.
+        """
         if x < 0:
             return 0
 
@@ -32,7 +39,14 @@ class Exponential:
         return self.lambtha * (e ** (-self.lambtha * x))
 
     def cdf(self, x):
-        """Calculate the CDF for a given time period."""
+        """Calculate the CDF value for a given time period x.
+
+        Args:
+            x: time period.
+
+        Returns:
+            the CDF value for x, or 0 if x is out of range.
+        """
         if x < 0:
             return 0
 
