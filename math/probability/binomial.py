@@ -50,3 +50,13 @@ class Binomial:
 
         coefficient = n_fact / (k_fact * nk_fact)
         return coefficient * (self.p ** k) * ((1 - self.p) ** (self.n - k))
+
+    def cdf(self, k):
+        """Calculate the value of the CDF for a given number of successes."""
+        if not isinstance(k, int):
+            k = int(k)
+        if k < 0 or k > self.n:
+            return 0
+
+        # TODO: accumulate self.pmf(i) for i in range(k + 1)
+        return None
