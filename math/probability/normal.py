@@ -42,3 +42,11 @@ class Normal:
         coefficient = 1 / (self.stddev * ((2 * pi) ** 0.5))
         exponent = -((x - self.mean) ** 2) / (2 * (self.stddev ** 2))
         return coefficient * (e ** exponent)
+
+    def cdf(self, x):
+        """Calculate the value of the CDF for a given x-value."""
+        pi = 3.1415926536
+        arg = (x - self.mean) / (self.stddev * (2 ** 0.5))
+        erf = (2 / (pi ** 0.5)) * (arg - (arg ** 3) / 3 + (arg ** 5) / 10
+                                   - (arg ** 7) / 42 + (arg ** 9) / 216)
+        return 0.5 * (1 + erf)
