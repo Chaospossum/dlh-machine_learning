@@ -33,8 +33,13 @@ def likelihood(x, n, P):
     if np.any((P < 0) | (P > 1)):
         raise ValueError("All values in P must be in the range [0, 1]")
 
-    coefficient = np.math.factorial(n) / (
-            np.math.factorial(x) * np.math.factorial(n - x)
-    )
+    def factorial(value):
+        """Compute factorial for a non-negative integer."""
+        result = 1
+        for i in range(2, value + 1):
+            result *= i
+        return result
+
+    coefficient = factorial(n) / (factorial(x) * factorial(n - x))
 
     return coefficient * (P ** x) * ((1 - P) ** (n - x))
