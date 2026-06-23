@@ -55,9 +55,16 @@ def likelihood(x, n, P):
     if np.any(P < 0) or np.any(P > 1):
         raise ValueError("All values in P must be in the range [0, 1]")
 
-    # Calculate binomial coefficient C(n, x)
-    from math import comb
-    binom_coeff = comb(n, x)
+    # Calculate binomial coefficient C(n, x) iteratively to avoid overflow
+    # C(n, x) = product from i=1 to x of (n - x + i) / i
+    if x == 0 or x == n:
+        binom_coeff = 1.0
+    else:
+        # Use the smaller of x and n-x for efficiency
+        k = min(x, n - x)
+        binom_coeff = 1.0
+        for i in range(1, k + 1):
+            binom_coeff = binom_coeff * (n - k + i) / i
 
     # Calculate likelihood for each p in P
     likelihoods = binom_coeff * (P ** x) * ((1 - P) ** (n - x))
