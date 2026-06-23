@@ -52,7 +52,7 @@ def likelihood(x, n, P):
         raise TypeError("P must be a 1D numpy.ndarray")
 
     # Validate all values in P are in [0, 1]
-    if np.any(P < 0) or np.any(P > 1):
+    if np.any(P < 0) or np.any(P > 1) or np.any(np.isnan(P)):
         raise ValueError("All values in P must be in the range [0, 1]")
 
     # Calculate binomial coefficient C(n, x) iteratively to avoid overflow
