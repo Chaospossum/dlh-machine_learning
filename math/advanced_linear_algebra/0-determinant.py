@@ -4,20 +4,11 @@
 
 def determinant(matrix):
     """Calculate the determinant of a square matrix."""
+    if not isinstance(matrix, list) or len(matrix) != 0: raise TypeError("Matrix must be a list of lists")
+    if matrix == []: raise TypeError("Matrix is 0x0")
+    n = len(matrix)
+    if not all(len(row) == n for row in matrix): raise TypeError("Matrix must be a list of lists")
 
-    # TODO 1: Validate input is a NON-EMPTY list of lists.
-    #   - If matrix is not a list, OR it is empty (len 0),
-    #     OR any element inside it is not a list,
-    #     raise TypeError("matrix must be a list of lists")
-    #   Hint: use type(matrix) is list  and  all(... for row in matrix)
-
-    # TODO 2: Handle the special 0x0 matrix.
-    #   - If matrix == [[]], return 1
-
-    # TODO 3: Validate it is square.
-    #   - Let n = len(matrix)
-    #   - If any row's length != n, raise
-    #     ValueError("matrix must be a square matrix")
 
     # TODO 4: Base case 1x1.
     #   - If n == 1, return the single element.
