@@ -4,5 +4,12 @@ import sympy
 
 x, y = sympy.symbols('x y')
 derivative = sympy.diff(sympy.exp(x**2 * y), x, y)
-# Simplifies to 2*x*(x**2*y + 1)*exp(x**2*y); the matching choice is 2.
-print(2)
+choices = {
+    1: 2*x*(1 + y)*sympy.exp(x**2 * y),
+    2: 2*x*sympy.exp(2*x),
+    3: 2*x*(1 + x**2*y)*sympy.exp(x**2 * y),
+    4: sympy.exp(2*x),
+}
+match = next(n for n, e in choices.items()
+             if sympy.simplify(derivative - e) == 0)
+print(match)
