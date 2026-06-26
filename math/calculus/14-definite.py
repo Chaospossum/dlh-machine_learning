@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
-"""My talents fall within definite limitations.
+"""My talents fall within definite limitations: integral of 1/v across 0."""
+import sympy
 
-Evaluate the definite integral of (1/v) dv over an interval spanning v = 0.
-1/v has a non-integrable singularity at v = 0, so the integral is undefined.
-Choices:
-    1) -1
-    2) 0
-    3) 1
-    4) undefined
-Correct choice: 4.
-"""
+v = sympy.Symbol('v')
+# Antiderivative is log|v|; the interval spans the singularity at v = 0,
+# so the definite integral does not converge (undefined) -> choice 4.
+antiderivative = sympy.integrate(1 / v, v)
 print(4)

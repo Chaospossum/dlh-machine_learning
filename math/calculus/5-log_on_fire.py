@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""A log on the fire.
+"""A log on the fire: compute the derivative of x * ln(x)."""
+import sympy
 
-Find d(x * ln(x))/dx.
-By the product rule: ln(x) + x * (1/x) = ln(x) + 1.
-Choices:
-    1) ln(x)
-    2) 1/x + 1
-    3) ln(x) + 1
-    4) 1/x
-Correct choice: 3.
-"""
-print(3)
+x = sympy.Symbol('x')
+derivative = sympy.diff(x * sympy.log(x), x)
+choices = {
+    1: sympy.log(x),
+    2: 1 / x + 1,
+    3: sympy.log(x) + 1,
+    4: 1 / x,
+}
+match = next(n for n, e in choices.items()
+             if sympy.simplify(derivative - e) == 0)
+print(match)

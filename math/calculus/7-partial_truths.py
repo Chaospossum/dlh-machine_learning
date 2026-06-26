@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Partial truths are often more insidious than total falsehoods.
+"""Partial truths...: partial derivative wrt y of e^(xy)."""
+import sympy
 
-Find the partial derivative with respect to y of f(x, y) = e^(xy).
-Treating x as a constant gives x * e^(xy).
-Choices:
-    1) e^(xy)
-    2) x e^(xy)
-    3) y e^(xy)
-    4) x y e^(xy)
-Correct choice: 2.
-"""
-print(2)
+x, y = sympy.symbols('x y')
+derivative = sympy.diff(sympy.exp(x * y), y)
+choices = {
+    1: sympy.exp(x * y),
+    2: x * sympy.exp(x * y),
+    3: y * sympy.exp(x * y),
+    4: x * y * sympy.exp(x * y),
+}
+match = next(n for n, e in choices.items()
+             if sympy.simplify(derivative - e) == 0)
+print(match)

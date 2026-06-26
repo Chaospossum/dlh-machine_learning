@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Hello, derivatives!
+"""Hello, derivatives! Compute dy/dx for y = x^4 + 3x^3 - 5x + 1."""
+import sympy
 
-Find dy/dx for y = x^4 + 3x^3 - 5x + 1.
-Differentiating term by term gives 4x^3 + 9x^2 - 5.
-Choices:
-    1) 3x^3 + 6x^2 - 4
-    2) 4x^3 + 6x^2 - 5
-    3) 4x^3 + 9x^2 - 5
-    4) 4x^3 + 9x^2 - 4
-Correct choice: 3.
-"""
-print(3)
+x = sympy.Symbol('x')
+derivative = sympy.diff(x**4 + 3*x**3 - 5*x + 1, x)
+choices = {
+    1: 3*x**3 + 6*x**2 - 4,
+    2: 4*x**3 + 6*x**2 - 5,
+    3: 4*x**3 + 9*x**2 - 5,
+    4: 4*x**3 + 9*x**2 - 4,
+}
+match = next(n for n, e in choices.items()
+             if sympy.simplify(derivative - e) == 0)
+print(match)
