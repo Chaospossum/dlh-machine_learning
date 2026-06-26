@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
-"""Create a definite plan for carrying out your desire.
+"""Create a definite plan...: definite integral of x^2 from 0 to 3."""
+import sympy
 
-Evaluate the definite integral of x^2 dx from 0 to 3.
-[x^3 / 3] from 0 to 3 = 27 / 3 = 9.
-Choices:
-    1) 3
-    2) 6
-    3) 9
-    4) 27
-Correct choice: 3.
-"""
-print(3)
+x = sympy.Symbol('x')
+value = sympy.integrate(x**2, (x, 0, 3))
+choices = {1: 3, 2: 6, 3: 9, 4: 27}
+print(next(n for n, v in choices.items() if v == value))

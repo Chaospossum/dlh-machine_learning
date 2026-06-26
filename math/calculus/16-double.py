@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Double whammy.
+"""Double whammy: double integral of x^2 / y, x in [0,3], y in [1,2]."""
+import sympy
 
-Evaluate the double integral of x^2 * y^(-1) dx dy.
-The inner integral of x^2 over [0, 3] is 9; the outer integral of 1/y
-over [1, 2] is ln(2). Their product is 9 ln(2).
-Choices:
-    1) 9 ln(2)
-    2) 9
-    3) 27 ln(2)
-    4) 27
-Correct choice: 1.
-"""
-print(1)
+x, y = sympy.symbols('x y')
+inner = sympy.integrate(x**2, (x, 0, 3))
+value = sympy.integrate(inner / y, (y, 1, 2))
+choices = {
+    1: 9 * sympy.log(2),
+    2: 9,
+    3: 27 * sympy.log(2),
+    4: 27,
+}
+match = next(n for n, e in choices.items()
+             if sympy.simplify(value - e) == 0)
+print(match)
