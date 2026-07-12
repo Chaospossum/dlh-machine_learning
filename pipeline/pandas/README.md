@@ -31,3 +31,4 @@ manipulation and analysis in Python.
 | File | Description |
 | ---- | ----------- |
 | `0-from_numpy.py` | `from_numpy(array)`: creates a `pd.DataFrame` from a `np.ndarray` with columns labeled alphabetically (A, B, C, ...) |
+| `1-from_dictionary.py` | creates a `pd.DataFrame` `df` from a dictionary, with columns `First` and `Second` and rows labeled A through D |
