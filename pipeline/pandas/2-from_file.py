@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Module that loads a file into a DataFrame using a given delimiter."""
 import pandas as pd
 
 
