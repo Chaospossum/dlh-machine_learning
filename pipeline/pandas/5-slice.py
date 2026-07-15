@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Module that slices selected columns of a DataFrame every 60th row."""
-import pandas as pd
 
 
 def slice(df):
