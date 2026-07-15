@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Module that converts the last 10 rows of two DataFrame columns to NumPy."""
 import pandas as pd
 
 
