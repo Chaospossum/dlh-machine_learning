@@ -1,13 +1,12 @@
 # Tree Models
 
-Implementation of tree-based machine learning models from scratch for the Digital Learning Hub curriculum.
+Implementation of tree-based machine learning models using scikit-learn for the Digital Learning Hub curriculum.
 
 ## What's inside
 
-This directory will contain implementations of tree-based supervised learning algorithms, built without relying on ML
-libraries (like scikit-learn) to ensure a deep understanding of how these models work under the hood.
+This directory contains implementations of tree-based supervised learning algorithms using scikit-learn.
 
-### Planned contents
+### Contents
 
 - **Decision Trees** — Classification and regression trees, including:
     - Splitting criteria (Gini impurity, entropy, MSE)
