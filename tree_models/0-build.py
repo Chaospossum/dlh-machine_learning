@@ -29,16 +29,3 @@ def build_decision_tree(min_samples_leaf, min_samples_split, random_state):
         random_state=random_state
     )
     return model
-
-
-if __name__ == '__main__':
-    dt = build_decision_tree(
-        min_samples_leaf=1,
-        min_samples_split=2,
-        random_state=42
-    )
-    X = [[0, 0], [1, 1]]
-    y = [0, 1]
-    dt.fit(X, y)
-    print(f"Decision Tree hyperparameters: {dt.get_params()}")
-    print(f"Is the Decision Tree Classifier fitted: {hasattr(dt, 'tree_')}")
