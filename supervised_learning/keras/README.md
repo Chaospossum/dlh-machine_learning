@@ -8,6 +8,7 @@ for the Digital Learning Hub curriculum.
 | File | Description |
 | --- | --- |
 | `0-sequential.py` | `build_model(nx, layers, activations, lambtha, keep_prob)` — builds a network with the Sequential API |
+| `1-input.py` | `build_model(nx, layers, activations, lambtha, keep_prob)` — builds a network with the Functional API |
 
 ## Topics
 
