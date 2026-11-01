@@ -1,0 +1,10 @@
+{
+  "name": "dlh-machine_learning",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "postCreateCommand": "pip install --user tensorflow-cpu==2.15.1 numpy==1.25.2 pycodestyle==2.11.1 matplotlib scipy scikit-learn",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"]
+    }
+  }
+}
